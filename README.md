@@ -16,6 +16,7 @@ This project focuses entirely on the **frontend implementation**, with Firebase 
 ---
 
 ## Project Structure
+```
 messfood-review-platform/
 ├── src/
 │ ├── components/ # Reusable UI components (Menu, FeedbackForm, ReviewList)
@@ -25,22 +26,29 @@ messfood-review-platform/
 ├── public/
 ├── package.json
 └── README.md
+```
 
-**Clone Repository** ```bash
-https://github.com/RohitAllanki04/MessFoodReviewPlatform.git
-# Install Dependencies
+---
 
+## Getting Started
+
+### Clone Repository
+```bash
+git clone https://github.com/RohitAllanki04/MessFoodReviewPlatform.git
+cd MessFoodReviewPlatform
+```
+
+### Install Dependencies
+```bash
 npm install
+```
 
+### Configure Firebase
+1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com).
+2. Enable **Firestore Database** and **Authentication** (with Google and Email providers).
+3. Copy your Firebase config into `src/firebaseConfig.js`:
 
-# Configure Firebase
-
-Create a Firebase project.
-
-Enable Firestore Database and Authentication (Google/Email).
-
-Copy your Firebase config into src/firebaseConfig.js:
-
+```javascript
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -57,23 +65,34 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+```
 
-
-# Run Application
-
+### Run Application
+```bash
 npm start
+```
 
-# Tech Stack
+The app will run on `http://localhost:3000`.
 
-Frontend: React, React Router, Context API/Hooks
+---
 
-Backend (as-a-service): Firebase Firestore
+## Tech Stack
+- **Frontend**: React, React Router, Context API/Hooks
+- **Backend (as-a-service)**: Firebase Firestore
+- **Authentication**: Firebase Auth
 
-Authentication: Firebase Auth
+---
 
-# Example Use Cases
-Action	Description
-View-- Daily Menu	Displays the mess menu for today.
-Select --Date	Fetch menu from Firestore by date.
-Submit-- Feedback	Write review + star rating.
-Real-Time-- Updates	See feedback instantly without refresh.
+## Example Use Cases
+
+| Action              | Description                              |
+|---------------------|------------------------------------------|
+| View Daily Menu     | Displays the mess menu for today.        |
+| Select Date         | Fetch menu from Firestore by date.       |
+| Submit Feedback     | Write review + star rating.              |
+| Real-Time Updates   | See feedback instantly without refresh.  |
+
+---
+
+## Contributing
+Feel free to fork the repo and submit pull requests for improvements or bug fixes.
